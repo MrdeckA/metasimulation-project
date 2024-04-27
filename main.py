@@ -19,6 +19,13 @@ class RAMProgram:
 
     def __len__(self):
         return len(self.instructions)
+    
+    def __str__(self):
+        program_str = ""
+        for index, instruction in enumerate(self.instructions):
+            program_str += f"Instruction {index + 1}: {instruction}\n"
+        return program_str
+
 
 class RAMInstruction:
     def __init__(self, op, args):
@@ -77,6 +84,7 @@ def initialize_RAM_from_file(file_path, input_word):
 file_path = "file.txt"
 input_word = "example"
 program = initialize_RAM_from_file(file_path, input_word)
+print("\n")
 print(program)
 
 
@@ -433,8 +441,6 @@ for vertex, edges in ram_graph.items():
 
 
 # Question 9 : On va appliquer une optimisation d’élimination du code mort. A partir du graphe représentant le code, calculer tous les sommets accessibles `a partir de la premi`ere instruction. Tous les sommets non accessibles correspondent `a des instructions qui ne seront jamais exécutées. Supprimer ces instructions dans votre code.
-
-
 def find_accessible_vertices(graph, start_vertex, visited=None):
     if visited is None:
         visited = set()

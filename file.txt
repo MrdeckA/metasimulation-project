@@ -1,0 +1,5 @@
+ADD(i1, 0, r1)  
+JE(i2, 0, 6)    
+MULT(r1, i1, r1)  
+SUB(i2, 1, i2)  
+JUMP(-4)         
